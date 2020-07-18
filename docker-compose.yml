@@ -1,0 +1,64 @@
+version: '2.1'
+services:
+  moodle-database:
+    image: mariadb
+    restart: always
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=database
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - "./docker/sql:/docker-entrypoint-initdb.d:ro"
+      - "./docker/volumes/mariadb:/var/lib/mysql"
+    networks:
+      - backend
+  moodle-adminer:
+    image: adminer
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.moodle-adminer.rule=Host(`moodle-adminer.docker.localhost`)
+    networks:
+      - traefik
+      - backend
+    depends_on:
+      - moodle-database
+  moodle:
+    build:
+      context: .
+    image: mindhochschulnetzwerkde/moodle
+    environment:
+      - WWW_ROOT=https://mhn.docker.localhost
+      - DB_HOST=moodle-database
+      - DB_USER=user
+      - DB_PASSWORD=password
+      - DB_NAME=database
+      - SMTP_HOST=  # TODO: mailserver
+      - SMTP_SECURE=tls # "" (keine), "ssl", "tls"
+      - SMTP_AUTH_TYPE="LOGIN" # "LOGIN", "PLAIN", "NTLM", "CRAM-MD5"
+      - SMTP_USER=
+      - SMTP_PASSWORD=
+      - IMAP_HOST=   # TODO: mailserver
+      - IMAP_SSL=tls # "" (aus), "ssl", "sslv2", "sslv3", "tls", "tlsv1"
+      - IMAP_USER=
+      - IMAP_PASSWORD=
+      - LDAP_HOST=ldap://ldap:389/
+      - LDAP_BIND_DN=cn=admin,dc=mind-hochschul-netzwerk,dc=de
+      - LDAP_BIND_PASSWORD=admin
+    volumes:
+      - "./docker/moodledata-init.tar.bz2:/moodledata-init.tar.bz2:ro"
+      - "./docker/volumes/moodledata:/moodledata"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.moodle.rule=Host(`mhn.docker.localhost`)
+    depends_on:
+      - moodle-database
+    networks:
+      - traefik
+      - backend
+networks:
+  traefik:
+    name: traefik
+  backend:
+    name: backend

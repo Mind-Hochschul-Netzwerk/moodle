@@ -1,0 +1,6 @@
+#! /bin/sh -x
+
+if [ ! -d /moodledata/lang ] && [ -f /moodledata-init.tar.bz2 ]; then
+    tar --strip-components=1 -C /moodledata -xjf /moodledata-init.tar.bz2 moodledata
+fi
+

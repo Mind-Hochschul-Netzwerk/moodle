@@ -1,0 +1,4 @@
+#! /bin/sh -x
+
+chown -R www-data.www-data /moodledata
+
