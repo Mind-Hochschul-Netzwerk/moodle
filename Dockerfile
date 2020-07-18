@@ -47,5 +47,4 @@ RUN set -ex \
   && rm -rf /tmp/build
 
 COPY entry.d/ /entry.d
-COPY config/php.ini /etc/php7/conf.d/moodle.ini
 COPY config/config.php /var/www/html/config.php

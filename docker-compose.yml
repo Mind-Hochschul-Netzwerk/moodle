@@ -36,7 +36,7 @@ services:
       - DB_NAME=database
       - SMTP_HOST=  # TODO: mailserver
       - SMTP_SECURE=tls # "" (keine), "ssl", "tls"
-      - SMTP_AUTH_TYPE="LOGIN" # "LOGIN", "PLAIN", "NTLM", "CRAM-MD5"
+      - SMTP_AUTH_TYPE=LOGIN # "LOGIN", "PLAIN", "NTLM", "CRAM-MD5"
       - SMTP_USER=
       - SMTP_PASSWORD=
       - IMAP_HOST=   # TODO: mailserver
