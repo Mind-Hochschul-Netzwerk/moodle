@@ -4,7 +4,7 @@ main page: mind-hochschul-netzwerk.de
 
 ## build and run
 
-Make sure that the [traefik container](https://github.com/mhn-de/traefik) is up and running. Then:
+Make sure that the [traefik container](https://github.com/Mind-Hochschul-Netzwerk/traefik) is up and running. Then:
 
     $ docker-compose up --build -d moodle
 
@@ -24,4 +24,4 @@ Navigate to [http://moodle-adminer.docker.localhost](http://moodle-adminer.docke
 
 ## LDAP authentication
 
-Make sure that the [ldap container](https://github.com/mhn-de/ldap) is up and running. See README.md there.
+Make sure that the [ldap container](https://github.com/Mind-Hochschul-Netzwerk/ldap) is up and running. See [README.md](https://github.com/Mind-Hochschul-Netzwerk/ldap/blob/master/README.md) there.
