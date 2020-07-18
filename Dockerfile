@@ -1,4 +1,4 @@
-FROM mindhochschulnetzwerkde/php-base
+FROM mindhochschulnetzwerk/php-base
 
 LABEL Maintainer="Henrik Gebauer <code@henrik-gebauer.de>" \
       Description="mind-hochschul-netzwerk.de"

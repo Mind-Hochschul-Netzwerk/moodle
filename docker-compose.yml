@@ -27,7 +27,7 @@ services:
   moodle:
     build:
       context: .
-    image: mindhochschulnetzwerkde/moodle
+    image: mindhochschulnetzwerk/moodle
     environment:
       - WWW_ROOT=https://mhn.docker.localhost
       - DB_HOST=moodle-database
