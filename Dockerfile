@@ -25,7 +25,7 @@ RUN set -ex \
     php7-ldap \
     ghostscript
 
-COPY build-cache/ get-resources.sh resources.list /tmp/build/
+COPY assets/ get-resources.sh resources.list /tmp/build/
 
 RUN set -ex \
   && /tmp/build/get-resources.sh

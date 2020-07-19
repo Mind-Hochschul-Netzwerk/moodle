@@ -3,8 +3,8 @@
 DIR=/tmp/build
 LIST=/tmp/build/resources.list
 
-if [ -d "./build-cache" ]; then
-    DIR="./build-cache"
+if [ -d "./assets" ]; then
+    DIR="./assets"
 fi
 
 if [ -d "$1" ]; then
