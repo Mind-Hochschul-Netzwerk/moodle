@@ -29,8 +29,6 @@ COPY build-cache/ get-resources.sh resources.list /tmp/build/
 
 RUN set -ex \
   && /tmp/build/get-resources.sh
-
-RUN set -ex \
   && tar --strip-components=1 -C /var/www/html -xzf /tmp/build/moodle-*.tgz moodle \
   && for f in /tmp/build/mod_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/mod -qq; fi; done \
   && for f in /tmp/build/repository_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/repository -qq; fi; done \
