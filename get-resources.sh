@@ -19,9 +19,6 @@ if [ -f "$2" ]; then
     LIST=$2
 fi
 
-echo $DIR
-echo $LIST
-
 while read line; do
   line=$(echo $line) # = trim($line)
   # skip empty lines and comments
