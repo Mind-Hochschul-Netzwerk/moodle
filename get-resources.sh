@@ -1,11 +1,35 @@
 #!/bin/sh -e
 
+DIR=/tmp/build
+LIST=/tmp/build/resources.list
+
+if [ -d "./build-cache" ]; then
+    DIR="./build-cache"
+fi
+
+if [ -d "$1" ]; then
+    DIR=${1%/}
+fi
+
+if [ -f "./resources.list" ]; then
+    LIST="./resources.list"
+fi
+
+if [ -f "$2" ]; then
+    LIST=$2
+fi
+
+echo $DIR
+echo $LIST
+
 while read line; do
   line=$(echo $line) # = trim($line)
   # skip empty lines and comments
-  if [ "$line" = "" ] || [ ${line:0:1} = "#" ]; then
-    continue
-  fi
+  case "$line" in
+      ""|\#*)
+        continue
+        ;;
+  esac
   filename=$(echo "$line"|cut -d " " -f1)
   url=$(echo "$line"|cut -d " " -f2)
   checksum=$(echo "$line"|cut -d " " -f3)
@@ -13,10 +37,10 @@ while read line; do
   if [ "$label" != "" ]; then
       label=" ($label)"
   fi
-  if [ ! -f "/tmp/build/$filename" ]; then
+  if [ ! -f "$DIR/$filename" ]; then
     echo "downloading resource $filename$label"
-    curl -L -o "/tmp/build/$filename" "$url"
+    curl -L -o "$DIR/$filename" "$url"
   fi
   echo -n "sha256sum: "
-  echo "$checksum  /tmp/build/$filename" | sha256sum -c -
-done < /tmp/build/resources.list
+  echo "$checksum  $DIR/$filename" | sha256sum -c -
+done < "$LIST"
