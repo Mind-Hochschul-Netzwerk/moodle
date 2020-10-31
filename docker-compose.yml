@@ -12,7 +12,7 @@ services:
       - "./docker/sql:/docker-entrypoint-initdb.d:ro"
       - "${VOLUMES_DIR}/mariadb:/var/lib/mysql"
     networks:
-      - mhn-members-data
+      - moodle
 
   moodle-adminer:
     image: adminer
@@ -27,7 +27,7 @@ services:
       - traefik.http.routers.moodle-adminer.middlewares=secheader
     networks:
       - traefik
-      - mhn-members-data
+      - moodle
     depends_on:
       - moodle-database
 
@@ -68,11 +68,15 @@ services:
       - moodle-database
     networks:
       - traefik
-      - mhn-members-data
+      - moodle
+      - ldap
 
 networks:
   traefik:
     name: traefik
     external: true
-  mhn-members-data:
-    name: mhn-members-data
+  ldap:
+    name: ldap
+    external: true
+  moodle:
+    name: moodle
