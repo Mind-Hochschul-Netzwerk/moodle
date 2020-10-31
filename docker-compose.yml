@@ -41,15 +41,15 @@ services:
       - DB_USER=user
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_NAME=database
-      - SMTP_HOST=  # TODO: mailserver
-      - SMTP_SECURE=tls # "" (keine), "ssl", "tls"
-      - SMTP_AUTH_TYPE=LOGIN # "LOGIN", "PLAIN", "NTLM", "CRAM-MD5"
-      - SMTP_USER=
-      - SMTP_PASSWORD=
-      - IMAP_HOST=   # TODO: mailserver
-      - IMAP_SSL=tls # "" (aus), "ssl", "sslv2", "sslv3", "tls", "tlsv1"
-      - IMAP_USER=
-      - IMAP_PASSWORD=
+      - SMTP_HOST
+      - SMTP_SECURE
+      - SMTP_AUTH_TYPE
+      - SMTP_USER
+      - SMTP_PASSWORD
+      - IMAP_HOST
+      - IMAP_SSL
+      - IMAP_USER
+      - IMAP_PASSWORD
       - LDAP_HOST=ldap://ldap:389/
       - LDAP_BIND_DN=cn=admin,dc=mind-hochschul-netzwerk,dc=de
       - LDAP_BIND_PASSWORD
