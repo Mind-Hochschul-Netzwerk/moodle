@@ -4,6 +4,8 @@ main page: mind-hochschul-netzwerk.de
 
 ## build and run
 
+Edit env.sample and save it as .env
+
 Make sure that the [traefik container](https://github.com/Mind-Hochschul-Netzwerk/traefik) is up and running. Then:
 
     $ docker-compose up --build -d moodle
