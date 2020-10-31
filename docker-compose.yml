@@ -1,38 +1,45 @@
-version: '2.1'
+version: '3.5'
 services:
   moodle-database:
     image: mariadb
     restart: always
     environment:
       - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
+      - MYSQL_PASSWORD
       - MYSQL_DATABASE=database
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD
     volumes:
       - "./docker/sql:/docker-entrypoint-initdb.d:ro"
-      - "./docker/volumes/mariadb:/var/lib/mysql"
+      - "${VOLUMES_DIR}/mariadb:/var/lib/mysql"
     networks:
-      - backend
+      - mhn-members-data
+
   moodle-adminer:
     image: adminer
     restart: always
     labels:
       - traefik.enable=true
-      - traefik.http.routers.moodle-adminer.rule=Host(`moodle-adminer.docker.localhost`)
+      - traefik.docker.network=traefik
+      - traefik.http.routers.moodle-adminer.entrypoints=websecure
+      - traefik.http.routers.moodle-adminer.rule=Host(`moodle-adminer.${DOMAINNAME}`)
+      - traefik.http.routers.moodle-adminer.tls=true
+      - traefik.http.routers.moodle-adminer.tls.certresolver=myresolver
+      - traefik.http.routers.moodle-adminer.middlewares=secheader
     networks:
       - traefik
-      - backend
+      - mhn-members-data
     depends_on:
       - moodle-database
+
   moodle:
     build:
       context: .
     image: mindhochschulnetzwerk/moodle
     environment:
-      - WWW_ROOT=https://mhn.docker.localhost
+      - WWW_ROOT=https://www.${DOMAINNAME}
       - DB_HOST=moodle-database
       - DB_USER=user
-      - DB_PASSWORD=password
+      - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_NAME=database
       - SMTP_HOST=  # TODO: mailserver
       - SMTP_SECURE=tls # "" (keine), "ssl", "tls"
@@ -45,20 +52,27 @@ services:
       - IMAP_PASSWORD=
       - LDAP_HOST=ldap://ldap:389/
       - LDAP_BIND_DN=cn=admin,dc=mind-hochschul-netzwerk,dc=de
-      - LDAP_BIND_PASSWORD=admin
+      - LDAP_BIND_PASSWORD
     volumes:
       - "./docker/moodledata-init.tar.bz2:/moodledata-init.tar.bz2:ro"
-      - "./docker/volumes/moodledata:/moodledata"
+      - "${VOLUMES_DIR}/moodledata:/moodledata"
     labels:
       - traefik.enable=true
-      - traefik.http.routers.moodle.rule=Host(`mhn.docker.localhost`)
+      - traefik.docker.network=traefik
+      - traefik.http.routers.moodle.entrypoints=websecure
+      - traefik.http.routers.moodle.rule=Host(`${DOMAINNAME}`) || Host(`moodle.${DOMAINNAME}`) || Host(`www.${DOMAINNAME}`) || Host(`www.moodle.${DOMAINNAME}`)
+      - traefik.http.routers.moodle.tls=true
+      - traefik.http.routers.moodle.tls.certresolver=myresolver
+      - traefik.http.routers.moodle.middlewares=secheader
     depends_on:
       - moodle-database
     networks:
       - traefik
-      - backend
+      - mhn-members-data
+
 networks:
   traefik:
     name: traefik
-  backend:
-    name: backend
+    external: true
+  mhn-members-data:
+    name: mhn-members-data
