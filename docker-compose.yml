@@ -2,7 +2,7 @@ version: '3.5'
 services:
   moodle-database:
     image: mariadb
-    restart: always
+    restart: unless-stopped
     environment:
       - MYSQL_USER=user
       - MYSQL_PASSWORD
@@ -16,7 +16,7 @@ services:
 
   moodle-adminer:
     image: adminer
-    restart: always
+    restart: unless-stopped
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik
@@ -35,6 +35,7 @@ services:
     build:
       context: .
     image: mindhochschulnetzwerk/moodle
+    restart: unless-stopped
     environment:
       - WWW_ROOT=https://www.${DOMAINNAME}
       - DB_HOST=moodle-database
