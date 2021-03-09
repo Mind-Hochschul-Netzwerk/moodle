@@ -1,4 +1,4 @@
-version: '3.5'
+version: "3.5"
 services:
   moodle-database:
     image: mariadb
@@ -24,7 +24,7 @@ services:
       - traefik.http.routers.moodle-adminer.rule=Host(`moodle-adminer.${DOMAINNAME}`)
       - traefik.http.routers.moodle-adminer.tls=true
       - traefik.http.routers.moodle-adminer.tls.certresolver=myresolver
-      - traefik.http.routers.moodle-adminer.middlewares=secheader
+      - traefik.http.routers.moodle-adminer.middlewares=secheader@file
     networks:
       - traefik
       - moodle
@@ -64,7 +64,7 @@ services:
       - traefik.http.routers.moodle.rule=Host(`${DOMAINNAME}`) || Host(`moodle.${DOMAINNAME}`) || Host(`www.${DOMAINNAME}`) || Host(`www.moodle.${DOMAINNAME}`)
       - traefik.http.routers.moodle.tls=true
       - traefik.http.routers.moodle.tls.certresolver=myresolver
-      - traefik.http.routers.moodle.middlewares=secheader
+      - traefik.http.routers.moodle.middlewares=secheader@file
     depends_on:
       - moodle-database
     networks:
