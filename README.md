@@ -2,28 +2,33 @@
 
 main page: mind-hochschul-netzwerk.de
 
-## build and run
+## Build and run
 
-Edit env.sample and save it as .env
+Edit `.env.sample` and save it as `.env`
 
-Make sure that the [traefik container](https://github.com/Mind-Hochschul-Netzwerk/traefik) is up and running. Then:
+### Target "dev" (development)
 
-    $ docker-compose up --build -d moodle
+Optional, speeds up `docker build`:
 
-Navigate to [https://mhn.docker.localhost](https://mhn.docker.localhost). Tell your browser to accept
-the self-signed certificate. You will have to repeat this step whenever you restart your container.
+   $ ./get-resources.sh
 
-    user: admin
-    password: MHNTest0#
+Then:
 
-## adminer
+    $ make quick-image
+    $ make dev
 
-To start adminer run
+Navigate to [http://moodle.docker.localhost](http://moodle.docker.localhost). Tell your browser to accept the self-signed certificate. You will have to repeat this step whenever you restart your container.
 
-    $ docker-compose up -d moodle-adminer
+* Benutzername: admin
+* Passwort: MHNTest0#
 
-Navigate to [http://moodle-adminer.docker.localhost](http://moodle-adminer.docker.localhost) and login with the credentials from `docker-compose.yml`
+Navigate to [http://moodle-adminer.docker.localhost](http://moodle-adminer.docker.localhost) and login with the credentials from `.env` and `docker-compose.base.yml`.
+
+### Target "prod" (production)
+
+    $ make prod
 
 ## LDAP authentication
 
-Make sure that the [ldap container](https://github.com/Mind-Hochschul-Netzwerk/ldap) is up and running. See [README.md](https://github.com/Mind-Hochschul-Netzwerk/ldap/blob/master/README.md) there.
+Make sure that the [ldap container](https://github.com/Mind-Hochschul-Netzwerk/ldap) is up and running.
+
