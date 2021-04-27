@@ -14,26 +14,7 @@ services:
     networks:
       - moodle
 
-  moodle-adminer:
-    image: adminer
-    restart: unless-stopped
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=traefik
-      - traefik.http.routers.moodle-adminer.entrypoints=websecure
-      - traefik.http.routers.moodle-adminer.rule=Host(`moodle-adminer.${DOMAINNAME}`)
-      - traefik.http.routers.moodle-adminer.tls=true
-      - traefik.http.routers.moodle-adminer.tls.certresolver=myresolver
-      - traefik.http.routers.moodle-adminer.middlewares=secheader@file
-    networks:
-      - traefik
-      - moodle
-    depends_on:
-      - moodle-database
-
   moodle:
-    build:
-      context: .
     image: mindhochschulnetzwerk/moodle
     restart: unless-stopped
     environment:
