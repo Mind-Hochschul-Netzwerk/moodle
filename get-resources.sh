@@ -27,9 +27,9 @@ while read line; do
         continue
         ;;
   esac
-  filename=$(echo "$line"|cut -d " " -f1)
-  url=$(echo "$line"|cut -d " " -f2)
-  checksum=$(echo "$line"|cut -d " " -f3)
+  url=$(echo "$line"|cut -d " " -f1)
+  filename=$(basename "$url")
+  checksum=$(echo "$line"|cut -d " " -f2)
   label=$(echo $(echo "$line"|cut -d "#" -f2)) # use echo twice to trim leading whitespace
   if [ "$label" != "" ]; then
       label=" ($label)"
