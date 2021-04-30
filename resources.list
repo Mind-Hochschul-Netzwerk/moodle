@@ -11,6 +11,9 @@ https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.tgz 
 #https://moodle.org/plugins/download.php/8431/atto_fontsize_moodle32_2015042701.zip b4e4ed9dd29a1299a77a14960a190be97ce66a1e705216a0546345ffe29cce2b # Texteditor Atto: Schriftgroesse ändern
 #https://moodle.org/plugins/download.php/8582/atto_fontfamily_moodle36_2015051500.zip d6288fed10882d072053769b00245d3333c18c329266ecb2c05cb26389d971e8 # Texteditor Atto: Schriftart ändern
 
+# locale plugins
+https://moodle.org/plugins/download.php/23493/local_boostnavigation_moodle310_2020120902.zip 52de28532228ef56009a26aa92bd4849ca1f3b58139d119672ec2a6c33de811f # Boost navigation fumbling
+
 # Theme
 https://moodle.org/plugins/download.php/23796/theme_adaptable_moodle310_2021022302.zip 34fe44e24e1aa1414915aa22a00249675738cf035be72cb06a03914a90e6c725 # Adaptable-Theme
 
