@@ -23,3 +23,6 @@ prod: .env check-traefik
 	docker pull mindhochschulnetzwerk/moodle:latest
 	@echo "Starting Production Server"
 	docker-compose -f docker-compose.base.yml up -d --force-recreate --remove-orphans
+
+adminer:
+	docker-compose -f docker-compose.base.yml -f docker-compose.dev.yml up -d moodle-adminer
