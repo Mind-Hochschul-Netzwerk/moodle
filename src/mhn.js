@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
-let el = document.querySelector("body#page-site-index.notloggedin");
+let el = document.querySelector("body.course-1.notloggedin");
 if (el && window.innerWidth > 900) {
     el.classList.add("drawer-open-left");
     el.querySelector("button[data-action='toggle-drawer']").setAttribute("aria-expanded", "true");
