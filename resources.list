@@ -14,8 +14,5 @@ https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.tgz 
 # locale plugins
 https://moodle.org/plugins/download.php/23493/local_boostnavigation_moodle310_2020120902.zip 52de28532228ef56009a26aa92bd4849ca1f3b58139d119672ec2a6c33de811f # Boost navigation fumbling
 
-# Theme
-https://moodle.org/plugins/download.php/23796/theme_adaptable_moodle310_2021022302.zip 34fe44e24e1aa1414915aa22a00249675738cf035be72cb06a03914a90e6c725 # Adaptable-Theme
-
 # Sonstiges
 https://github.com/mathjax/MathJax/archive/2.7.7.zip?/mathjax.zip c92a98418986f5523fdb8b38ff6a272614982a19690a4e283d30fc87f15d0b2a # MathJax
