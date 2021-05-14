@@ -26,3 +26,6 @@ prod: .env check-traefik
 
 adminer:
 	docker-compose -f docker-compose.base.yml -f docker-compose.dev.yml up -d moodle-adminer
+
+database: .env
+	docker-compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d moodle-database
