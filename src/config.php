@@ -112,7 +112,7 @@ $CFG->sslproxy = true;
 //
 //      $CFG->disableprofilingtodatabase = true;
 //
-$CFG->lang = 'de';
+// $CFG->lang = 'de';
 // Use the following flag to completely disable the installation of plugins
 // (new plugins, available updates and missing dependencies) and related
 // features (such as cancelling the plugin installation or upgrade) via the
