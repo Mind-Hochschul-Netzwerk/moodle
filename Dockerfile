@@ -36,6 +36,7 @@ RUN set -ex \
   && for f in /tmp/build/theme_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/theme -qq; fi; done \
   && for f in /tmp/build/enrol_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/enrol -qq; fi; done \
   && for f in /tmp/build/local_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/local -qq; fi; done \
+  && for f in /tmp/build/availability_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/availability/condition -qq; fi; done \
   && unzip /tmp/build/mathjax.zip -d /var/www/html/ -qq && mv /var/www/html/MathJax-* /var/www/html/mathjax \
   # LDAP workaround, see https://tracker.moodle.org/browse/MDL-63207
   && sed "s#// Skip update.*in LDAP.\$#if (\!isset(\$user_entry[\$ldapkey][0])) \$user_entry[\$ldapkey] = [''];\\0#" -i /var/www/html/auth/ldap/auth.php \
