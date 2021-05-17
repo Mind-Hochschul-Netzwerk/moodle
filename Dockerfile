@@ -23,7 +23,8 @@ RUN set -ex \
     php7-mbstring \
     php7-session \
     php7-ldap \
-    ghostscript
+    ghostscript \
+    poppler-utils
 
 COPY assets/ get-resources.sh resources.list /tmp/build/
 
@@ -45,7 +46,8 @@ RUN set -ex \
   && chown -R www-data:www-data /moodledata \
   && echo "* * * * * /usr/bin/php /var/www/html/admin/cli/cron.php >/dev/null" > /etc/crontabs/www-data \
   && rm -rf /tmp/build \
-  && echo "client_max_body_size 100m;" > /etc/nginx/conf.d/server-client_max_body_size
+  && echo "client_max_body_size 100m;" > /etc/nginx/conf.d/server-client_max_body_size \
+  && echo "max_input_vars = 5000" >> /etc/php7/conf.d/custom.ini
 
 COPY entry.d/ /entry.d
 COPY src/ /var/www/html/

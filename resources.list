@@ -2,7 +2,7 @@
 # falls die Datei mit dem Namen in ./build-cache vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.tgz c15cf4539bfeedf253e79f36373acee7f360fc0ab0c6cc165f02da5334ed8bd0 # Moodle 3.10.4+
+https://download.moodle.org/download.php/direct/stable311/moodle-3.11.tgz ad9298dba64fbee6d2afa9d9f8a82e8f5b8aa0425b177a4420a8e387ac1ec98a # Moodle 3.11
 
 # Aktivitäten
 #https://moodle.org/plugins/download.php/21171/mod_publication_moodle38_2020010501.zip 6c37666dfead792578c2c79957ee6bb69eb4778da5c3d8767c88e7fd4aecf5c2 # Studierendenordner
