@@ -41,6 +41,9 @@ RUN set -ex \
   && unzip /tmp/build/mathjax.zip -d /var/www/html/ -qq && mv /var/www/html/MathJax-* /var/www/html/mathjax \
   # LDAP workaround, see https://tracker.moodle.org/browse/MDL-63207
   && sed "s#// Skip update.*in LDAP.\$#if (\!isset(\$user_entry[\$ldapkey][0])) \$user_entry[\$ldapkey] = [''];\\0#" -i /var/www/html/auth/ldap/auth.php \
+  # use common characters in mail addressess, see https://tracker.moodle.org/browse/MDL-71652
+  && sed "s#\$subaddress = base64_encode(implode(\$data));#\$subaddress = str_replace('=', '', strtr(base64_encode(implode(\$data)), '+/', '-.'));#" -i /var/www/html/lib/classes/message/inbound/address_manager.php \
+  && sed "s#\$data = base64_decode(\$encodeddata, true);#\$data = base64_decode(strtr(\$encodeddata, '-.', '+/'), true);#" -i /var/www/html/lib/classes/message/inbound/address_manager.php \
   && mkdir /moodledata \
   && chown -R nobody:nobody /var/www/html \
   && chown -R www-data:www-data /moodledata \
