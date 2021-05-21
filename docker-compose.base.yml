@@ -43,8 +43,6 @@ services:
       - traefik.docker.network=traefik
       - traefik.http.routers.moodle.entrypoints=websecure
       - traefik.http.routers.moodle.rule=Host(`www.${DOMAINNAME}`) || Host(`moodle.${DOMAINNAME}`) || Host(`${DOMAINNAME}`)
-      - traefik.http.routers.moodle.tls=true
-      - traefik.http.routers.moodle.tls.certresolver=myresolver
       - traefik.http.routers.moodle.middlewares=secheader@file
     depends_on:
       - moodle-database
