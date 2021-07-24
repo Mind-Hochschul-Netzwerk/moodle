@@ -8,7 +8,7 @@ endif
 
 image:
 	@echo "(Re)building docker image"
-	docker build --pull --no-cache -t mindhochschulnetzwerk/moodle:latest .
+	docker build --no-cache -t mindhochschulnetzwerk/moodle:latest .
 
 quick-image:
 	@echo "Rebuilding docker image"
@@ -18,9 +18,7 @@ dev: .env check-traefik
 	@echo "Starting DEV Server"
 	docker-compose -f docker-compose.base.yml -f docker-compose.dev.yml up -d --force-recreate --remove-orphans
 
-prod: .env check-traefik
-	@echo "(Re)pulling docker image"
-	docker pull mindhochschulnetzwerk/moodle:latest
+prod: image .env check-traefik
 	@echo "Starting Production Server"
 	docker-compose -f docker-compose.base.yml up -d --force-recreate --remove-orphans
 
@@ -29,3 +27,11 @@ adminer:
 
 database: .env
 	docker-compose -f docker-compose.base.yml up -d moodle-database
+
+shell:
+	docker-compose exec moodle sh
+
+MYSQL_PASSWORD=$(shell grep MYSQL_PASSWORD .env | sed -e 's/^.\+=//' -e 's/^"//' -e 's/"$$//')
+mysql: .env
+	@echo "docker-compose exec moodle-database mysql --user=user --password=\"...\" database"
+	@docker-compose exec moodle-database mysql --user=user --password="$(MYSQL_PASSWORD)" database
