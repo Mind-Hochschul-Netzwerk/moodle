@@ -29,9 +29,9 @@ database: .env
 	docker-compose -f docker-compose.base.yml up -d moodle-database
 
 shell:
-	docker-compose exec moodle sh
+	docker-compose -f docker-compose.base.yml exec moodle sh
 
 MYSQL_PASSWORD=$(shell grep MYSQL_PASSWORD .env | sed -e 's/^.\+=//' -e 's/^"//' -e 's/"$$//')
 mysql: .env
 	@echo "docker-compose exec moodle-database mysql --user=user --password=\"...\" database"
-	@docker-compose exec moodle-database mysql --user=user --password="$(MYSQL_PASSWORD)" database
+	@docker-compose -f docker-compose.base.yml exec moodle-database mysql --user=user --password="$(MYSQL_PASSWORD)" database
