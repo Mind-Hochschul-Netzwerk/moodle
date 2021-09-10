@@ -20,6 +20,9 @@ rebuild:
 adminer: .env check-traefik
 	docker-compose up -d $(SERVICENAME)-adminer
 
+stop-adminer:
+	docker-compose stop $(SERVICENAME)-adminer
+
 database: .env
 	docker-compose up -d --force-recreate $(SERVICENAME)-database
 

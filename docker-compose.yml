@@ -3,6 +3,7 @@ services:
   moodle-database:
     image: mariadb
     restart: unless-stopped
+    container_name: ${SERVICENAME}-database
     environment:
       - MYSQL_USER=user
       - MYSQL_PASSWORD
@@ -17,6 +18,7 @@ services:
   moodle:
     image: mindhochschulnetzwerk/${SERVICENAME}
     restart: unless-stopped
+    container_name: ${SERVICENAME}
     environment:
       - WWW_ROOT=https://www.${DOMAINNAME}
       - DB_HOST=${SERVICENAME}-database
@@ -52,7 +54,7 @@ services:
 
   moodle-adminer:
     image: adminer
-    restart: unless-stopped
+    container_name: ${SERVICENAME}-adminer
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik
