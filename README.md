@@ -14,7 +14,7 @@ Optional, speeds up `docker build`:
 
 Then:
 
-    $ make quick-image
+    $ make rebuild
     $ make dev
 
 Navigate to [http://moodle.docker.localhost](http://moodle.docker.localhost). Tell your browser to accept the self-signed certificate. You will have to repeat this step whenever you restart your container.
