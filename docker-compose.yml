@@ -12,14 +12,14 @@ services:
       - "./docker/sql:/docker-entrypoint-initdb.d:ro"
       - "${VOLUMES_DIR}/mariadb:/var/lib/mysql"
     networks:
-      - moodle
+      - ${SERVICENAME}
 
   moodle:
-    image: mindhochschulnetzwerk/moodle
+    image: mindhochschulnetzwerk/${SERVICENAME}
     restart: unless-stopped
     environment:
       - WWW_ROOT=https://www.${DOMAINNAME}
-      - DB_HOST=moodle-database
+      - DB_HOST=${SERVICENAME}-database
       - DB_USER=user
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_NAME=database
@@ -41,15 +41,28 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik
-      - traefik.http.routers.moodle.entrypoints=websecure
-      - traefik.http.routers.moodle.rule=Host(`www.${DOMAINNAME}`) || Host(`moodle.${DOMAINNAME}`) || Host(`${DOMAINNAME}`)
-      - traefik.http.routers.moodle.middlewares=secheader@file
+      - traefik.http.routers.${SERVICENAME}.entrypoints=websecure
+      - traefik.http.routers.${SERVICENAME}.rule=Host(`www.${DOMAINNAME}`) || Host(`${SERVICENAME}.${DOMAINNAME}`) || Host(`${DOMAINNAME}`)
     depends_on:
-      - moodle-database
+      - ${SERVICENAME}-database
     networks:
       - traefik
-      - moodle
+      - ${SERVICENAME}
       - ldap
+
+  moodle-adminer:
+    image: adminer
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.${SERVICENAME}-adminer.entrypoints=websecure
+      - traefik.http.routers.${SERVICENAME}-adminer.rule=Host(`${SERVICENAME}-adminer.${DOMAINNAME}`)
+    networks:
+      - traefik
+      - ${SERVICENAME}
+    depends_on:
+      - ${SERVICENAME}-database
 
 networks:
   traefik:
@@ -59,4 +72,4 @@ networks:
     name: ldap
     external: true
   moodle:
-    name: moodle
+    name: ${SERVICENAME}
