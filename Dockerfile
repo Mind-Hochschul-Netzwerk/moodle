@@ -23,6 +23,7 @@ RUN set -ex \
     php7-mbstring \
     php7-session \
     php7-ldap \
+    php7-sodium \
     ghostscript \
     poppler-utils
 
@@ -39,8 +40,6 @@ RUN set -ex \
   && for f in /tmp/build/local_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/local -qq; fi; done \
   && for f in /tmp/build/availability_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/availability/condition -qq; fi; done \
   && unzip /tmp/build/mathjax.zip -d /var/www/html/ -qq && mv /var/www/html/MathJax-* /var/www/html/mathjax \
-  # LDAP workaround, see https://tracker.moodle.org/browse/MDL-63207
-  && sed "s#// Skip update.*in LDAP.\$#if (\!isset(\$user_entry[\$ldapkey][0])) \$user_entry[\$ldapkey] = [''];\\0#" -i /var/www/html/auth/ldap/auth.php \
   # use common characters in mail addressess, see https://tracker.moodle.org/browse/MDL-71652
   && sed "s#\$subaddress = base64_encode(implode(\$data));#\$subaddress = str_replace('=', '', strtr(base64_encode(implode(\$data)), '+/', '-.'));#" -i /var/www/html/lib/classes/message/inbound/address_manager.php \
   && sed "s#\$data = base64_decode(\$encodeddata, true);#\$data = base64_decode(strtr(\$encodeddata, '-.', '+/'), true);#" -i /var/www/html/lib/classes/message/inbound/address_manager.php \
