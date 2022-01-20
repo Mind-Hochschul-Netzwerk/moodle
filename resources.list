@@ -2,11 +2,11 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable311/moodle-3.11.4.tgz 38f4c8985817b912bb6f12bc2826a7ebcff90f8dea50e10af93702ffd550c6ef # Moodle 3.11.4
+https://download.moodle.org/download.php/direct/stable311/moodle-3.11.5.tgz 2858adacc4e111cc7ba54ffe8e63fc71ab04ca0ebf165869be37c88dfdf5bf0d # Moodle 3.11.5
 
 # locale plugins
 # https://moodle.org/plugins/local_boostnavigation/versions
-https://moodle.org/plugins/download.php/23493/local_boostnavigation_moodle310_2020120902.zip 52de28532228ef56009a26aa92bd4849ca1f3b58139d119672ec2a6c33de811f # Boost navigation fumbling
+https://moodle.org/plugins/download.php/25738/local_boostnavigation_moodle311_2021071500.zip e2b768d480be92d412f26dee046865caa62babcb0df4ae19f92f5782548bbe3e # Boost navigation fumbling
 
 # Voraussetzungs-Plugins (Verfügbarkeit von Aktivitäten einschränken)
 # https://moodle.org/plugins/availability_role/versions
