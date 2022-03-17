@@ -2,7 +2,7 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable311/moodle-3.11.5.tgz 2858adacc4e111cc7ba54ffe8e63fc71ab04ca0ebf165869be37c88dfdf5bf0d # Moodle 3.11.5
+https://download.moodle.org/download.php/direct/stable311/moodle-3.11.6.tgz 837a87624c625dbd7cbc9db74c7530f1e8feb394a02242699a3426980470421b # Moodle 3.11.6
 
 # locale plugins
 # https://moodle.org/plugins/local_boostnavigation/versions
