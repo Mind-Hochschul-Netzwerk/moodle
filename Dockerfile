@@ -24,6 +24,7 @@ RUN set -ex \
     php7-session \
     php7-ldap \
     php7-sodium \
+    php7-exif \
     ghostscript \
     poppler-utils
 

@@ -4,3 +4,4 @@ services:
     volumes:
       - "./src/config.php:/var/www/html/config.php"
       - "./src/mhn.js:/var/www/html/mhn.js"
+      - "./src/mhn.css:/var/www/html/mhn.css"
