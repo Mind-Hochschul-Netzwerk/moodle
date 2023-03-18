@@ -1,2 +1,0 @@
-/* Wiki: Kein Inhaltsverzeichnis (außer im Kursbereich 5: Teams/Akademie), keine Tabs für nicht-eingeloggte Besucher*innen */
-body:not(.category-5) .wiki-toc {display: none;}
