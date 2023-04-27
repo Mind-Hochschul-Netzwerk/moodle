@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   moodle-database:
-    image: mariadb
+    image: mariadb:10.11
     restart: unless-stopped
     container_name: ${SERVICENAME}-database
     environment:
@@ -38,8 +38,12 @@ services:
       - LDAP_BIND_DN=cn=admin,dc=mind-hochschul-netzwerk,dc=de
       - LDAP_BIND_PASSWORD
     volumes:
-      - "./docker/moodledata-init.tar.bz2:/moodledata-init.tar.bz2:ro"
+      #- "./docker/moodledata-init.tar.bz2:/moodledata-init.tar.bz2:ro"
       - "${VOLUMES_DIR}/moodledata:/moodledata"
+      - "./nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./server-default.conf:/etc/nginx/conf.d/default.conf:ro"
+      - "./php-custom.ini:/etc/php81/conf.d/custom.ini:ro"
+      - "./src/config.php:/var/www/html/config.php:ro"
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik

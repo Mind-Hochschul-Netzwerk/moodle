@@ -28,7 +28,7 @@ database: .env
 
 dev: .env check-traefik
 	@echo "Starting DEV Server"
-	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --force-recreate --remove-orphans
+	docker-compose up -d --force-recreate --remove-orphans
 
 prod: image .env check-traefik
 	@echo "Starting Production Server"
