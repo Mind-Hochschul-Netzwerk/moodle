@@ -7,6 +7,8 @@ COPY --chown=nobody assets/ get-resources.sh resources.list /tmp/build/
 
 USER root
 
+COPY --chown=nobody moodle-loop.sh /moodle-loop.sh
+
 RUN set -ex \
   && apk --no-cache add \
     php81-ldap \
@@ -32,16 +34,16 @@ RUN set -ex \
   # use common characters in mail addressess, see https://tracker.moodle.org/browse/MDL-71652
   && sed "s#\$subaddress = base64_encode(implode(\$data));#\$subaddress = str_replace('=', '', strtr(base64_encode(implode(\$data)), '+/', '-.'));#" -i /var/www/html/lib/classes/message/inbound/address_manager.php \
   && sed "s#\$data = base64_decode(\$encodeddata, true);#\$data = base64_decode(strtr(\$encodeddata, '-.', '+/'), true);#" -i /var/www/html/lib/classes/message/inbound/address_manager.php \
+  # set up moodle-loop.sh to run the moodle cron script
+  && chmod u+x /moodle-loop.sh \
+  && echo -e "[program:moodle-loop]\ncommand=/moodle-loop.sh\nautorestart=true" >> /etc/supervisor/conf.d/supervisord.conf \
   && true
+
+USER nobody
 
 COPY server/nginx.conf /etc/nginx/nginx.conf
 COPY server/server-default.conf /etc/nginx/conf.d/default.conf
 COPY server/php-custom.ini /etc/php81/conf.d/custom.ini
-COPY server/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
-COPY server/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY server/crontab /etc/crontabs/nobody
-COPY server/entrypoint.sh /entrypoint.sh
 
 COPY src/config.php /var/www/html/config.php
 
-CMD "/entrypoint.sh"
