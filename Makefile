@@ -17,29 +17,33 @@ rebuild:
 	@echo "Rebuilding docker image"
 	docker build -t mindhochschulnetzwerk/$(SERVICENAME):latest .
 
-adminer: .env check-traefik
-	docker-compose up -d $(SERVICENAME)-adminer
-
-stop-adminer:
-	docker-compose stop $(SERVICENAME)-adminer
-
-database: .env
-	docker-compose up -d --force-recreate $(SERVICENAME)-database
-
 dev: .env check-traefik
 	@echo "Starting DEV Server"
-	docker-compose up -d --force-recreate --remove-orphans
+	docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --force-recreate --remove-orphans
 
 prod: image .env check-traefik
 	@echo "Starting Production Server"
 	docker-compose up -d --force-recreate --remove-orphans $(SERVICENAME)
 
+upgrade:
+	git pull
+	make prod
+
 shell:
 	docker-compose exec $(SERVICENAME) sh
+
+rootshell:
+	docker-compose exec --user root $(SERVICENAME) sh
+
+logs:
+	docker-compose logs -f
+
+adminer: .env check-traefik
+	docker-compose up -d $(SERVICENAME)-adminer
+
+database: .env
+	docker-compose up -d --force-recreate $(SERVICENAME)-database
 
 mysql: .env
 	@echo "docker-compose exec $(SERVICENAME)-database mysql --user=user --password=\"...\" database"
 	@docker-compose exec $(SERVICENAME)-database mysql --user=user --password="$(MYSQL_PASSWORD)" database
-
-logs:
-	docker-compose logs -f
