@@ -41,6 +41,8 @@ services:
     volumes:
       #- "./docker/moodledata-init.tar.bz2:/moodledata-init.tar.bz2:ro"
       - "${VOLUMES_DIR}/moodledata:/moodledata"
+      - "./src/config.php:/var/www/html/config.php:ro"
+      - "./src/akademieprogramm.php:/var/www/html/akademieprogramm.php:ro"
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik
