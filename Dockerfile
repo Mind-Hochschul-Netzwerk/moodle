@@ -3,11 +3,12 @@ FROM trafex/php-nginx:3.0.0
 LABEL Maintainer="Henrik Gebauer <code@henrik-gebauer.de>" \
       Description="mind-hochschul-netzwerk.de"
 
+HEALTHCHECK --interval=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
+
 COPY --chown=nobody assets/ get-resources.sh resources.list /tmp/build/
+COPY --chown=nobody moodle-loop.sh /
 
 USER root
-
-COPY --chown=nobody moodle-loop.sh /moodle-loop.sh
 
 RUN set -ex \
   && apk --no-cache add \
@@ -46,4 +47,3 @@ COPY server/server-default.conf /etc/nginx/conf.d/default.conf
 COPY server/php-custom.ini /etc/php81/conf.d/custom.ini
 
 COPY src/config.php /var/www/html/config.php
-
