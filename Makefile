@@ -16,6 +16,8 @@ image:
 rebuild:
 	@echo "Rebuilding docker image"
 	docker build -t mindhochschulnetzwerk/$(SERVICENAME):latest .
+	@echo "Restarting service"
+	docker-compose up -d --force-recreate --remove-orphans $(SERVICENAME)
 
 dev: .env check-traefik
 	@echo "Starting DEV Server"
