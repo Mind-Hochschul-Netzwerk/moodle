@@ -2,7 +2,7 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable402/moodle-4.2.2.tgz 7308aa16a5afd4e6d33e3f50760caab335f50ea5aab4c839eb041f85f0d670ea # Moodle 4.2.2
+https://download.moodle.org/download.php/direct/stable403/moodle-4.3.tgz ccb04553269da6ca8678484108fae1dca2969fa7f7cc2cbae18c5304c2c81ac9 # Moodle 4.2.2
 
 # Voraussetzungs-Plugins (Verfügbarkeit von Aktivitäten einschränken)
 # https://moodle.org/plugins/availability_role/versions
