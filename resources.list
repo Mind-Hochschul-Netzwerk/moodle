@@ -6,11 +6,11 @@ https://download.moodle.org/download.php/direct/stable403/moodle-4.3.tgz ccb0455
 
 # Voraussetzungs-Plugins (Verfügbarkeit von Aktivitäten einschränken)
 # https://moodle.org/plugins/availability_role/versions
-https://moodle.org/plugins/download.php/28755/availability_role_moodle41_2023010500.zip 7a719edb1e2d21a4b5ce7b67d2cdc28243c85b27ddb46e3754380304548d23a5 # Voraussetzung "Rolle" https://moodle.org/plugins/availability_role
+https://moodle.org/plugins/download.php/30343/availability_role_moodle43_2023102000.zip def9d198c7110a9e28f32861ca1968886d9ce3038c67a954fe1d549d50e9a968 # Voraussetzung "Rolle" https://moodle.org/plugins/availability_role
 
 # Filter-Plugins
 # Filtercodes: https://moodle.org/plugins/filter_filtercodes
-https://moodle.org/plugins/download.php/29151/filter_filtercodes_moodle42_2023050700.zip 2285f731ded177ad43061a9033eb29e8939e753a8159be21a11892ae8d2aa517
+https://moodle.org/plugins/download.php/30371/filter_filtercodes_moodle43_2023102500.zip 4fc8192b2d3f59e683748d4759ef9e0dee65b19af20218de208a0db432a590db
 
 # Sonstiges
 https://github.com/mathjax/MathJax/archive/2.7.7.zip?/mathjax.zip c92a98418986f5523fdb8b38ff6a272614982a19690a4e283d30fc87f15d0b2a # MathJax
