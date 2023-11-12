@@ -50,7 +50,14 @@ $CFG->dboptions = [
     'dbcollation' => 'utf8mb4_unicode_ci',
 ];
 
-$CFG->wwwroot = getenv('WWW_ROOT');
+// do not redirect backend calls
+if (empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+    $CFG->wwwroot = 'https://' . $_SERVER['HTTP_HOST'];
+    $CFG->sslproxy = true;
+} else {
+    $CFG->wwwroot = getenv('WWW_ROOT');
+}
+
 $CFG->dataroot  = '/moodledata';
 $CFG->directorypermissions = 02777;
 $CFG->admin = 'admin';
