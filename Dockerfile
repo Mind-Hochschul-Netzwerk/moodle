@@ -3,7 +3,8 @@ FROM trafex/php-nginx:3.0.0
 LABEL Maintainer="Henrik Gebauer <code@henrik-gebauer.de>" \
       Description="mind-hochschul-netzwerk.de"
 
-HEALTHCHECK --interval=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
+EXPOSE 80
+HEALTHCHECK --interval=10s CMD curl --silent --fail http://127.0.0.1/fpm-ping
 
 COPY --chown=nobody assets/ get-resources.sh resources.list /tmp/build/
 COPY --chown=nobody moodle-loop.sh /
