@@ -52,8 +52,7 @@ $CFG->dboptions = [
 
 // do not redirect backend calls
 if (empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-    $CFG->wwwroot = 'https://' . $_SERVER['HTTP_HOST'];
-    $CFG->sslproxy = true;
+    $CFG->wwwroot = 'https://moodle';
 } else {
     $CFG->wwwroot = getenv('WWW_ROOT');
 }

@@ -2,7 +2,7 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable403/moodle-4.3.tgz ccb04553269da6ca8678484108fae1dca2969fa7f7cc2cbae18c5304c2c81ac9 # Moodle 4.2.2
+https://download.moodle.org/download.php/direct/stable403/moodle-4.3.1.tgz e0014a0fa9488abf151a04be65389f1471eb8edadac59969e97d78dd6f5e1243 # Moodle 4.3.1
 
 # Voraussetzungs-Plugins (Verfügbarkeit von Aktivitäten einschränken)
 # https://moodle.org/plugins/availability_role/versions
@@ -10,7 +10,7 @@ https://moodle.org/plugins/download.php/30343/availability_role_moodle43_2023102
 
 # Filter-Plugins
 # Filtercodes: https://moodle.org/plugins/filter_filtercodes
-https://moodle.org/plugins/download.php/30371/filter_filtercodes_moodle43_2023102500.zip 4fc8192b2d3f59e683748d4759ef9e0dee65b19af20218de208a0db432a590db
+https://moodle.org/plugins/download.php/30529/filter_filtercodes_moodle43_2023112000.zip 8a1c953912884c2e4cf48b09f2b18079249574dc55629f97e3c08a43f62d7d69
 
 # Sonstiges
 https://github.com/mathjax/MathJax/archive/2.7.7.zip?/mathjax.zip c92a98418986f5523fdb8b38ff6a272614982a19690a4e283d30fc87f15d0b2a # MathJax
