@@ -1,4 +1,4 @@
-FROM trafex/php-nginx:3.0.0
+FROM trafex/php-nginx:3.4.0
 
 LABEL Maintainer="Henrik Gebauer <code@henrik-gebauer.de>" \
       Description="mind-hochschul-netzwerk.de"
@@ -11,17 +11,19 @@ COPY --chown=nobody moodle-loop.sh /
 
 USER root
 
+# workaround for iconv issue
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ gnu-libiconv==1.15-r3
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+
 RUN set -ex \
   && apk --no-cache add \
-    php81-ldap \
-    php81-zip \
-    php81-iconv \
-    php81-simplexml \
-    php81-tokenizer \
-    php81-soap \
-    php81-fileinfo \
-    php81-sodium \
-    php81-exif \
+    php82-ldap \
+    php82-zip \
+    php82-iconv \
+    php82-simplexml \
+    php82-soap \
+    php82-sodium \
+    php82-exif \
   && /tmp/build/get-resources.sh \
   && tar --strip-components=1 -C /var/www/html -xzf /tmp/build/moodle-*.tgz moodle \
   && for f in /tmp/build/mod_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/mod -qq; fi; done \
