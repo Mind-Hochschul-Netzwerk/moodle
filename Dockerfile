@@ -46,5 +46,5 @@ RUN set -ex \
 USER nobody
 
 COPY server/nginx/ /etc/nginx/
-COPY server/php-custom.ini /etc/php81/conf.d/custom.ini
+COPY server/php-custom.ini /etc/php82/conf.d/custom.ini
 COPY src/config.php /var/www/html/config.php
