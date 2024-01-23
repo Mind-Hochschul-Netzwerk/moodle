@@ -4,6 +4,10 @@
 # Moodle
 https://download.moodle.org/download.php/direct/stable403/moodle-4.3.2.tgz 091f945483e49e4e321aa7a6c7a57ba9d0915b9b96769d959e7c494be237e4dd # Moodle 4.3.2
 
+# Block-Plugins
+# https://moodle.org/plugins/block_sharing_cart/versions
+https://moodle.org/plugins/download.php/28784/block_sharing_cart_moodle41_2023032300.zip d129ddaded56af803b7de2e8816d6d84a38faa91c31c6c6c0c661f8cec7c265a
+
 # Voraussetzungs-Plugins (Verfügbarkeit von Aktivitäten einschränken)
 # https://moodle.org/plugins/availability_role/versions
 https://moodle.org/plugins/download.php/30343/availability_role_moodle43_2023102000.zip def9d198c7110a9e28f32861ca1968886d9ce3038c67a954fe1d549d50e9a968 # Voraussetzung "Rolle" https://moodle.org/plugins/availability_role
