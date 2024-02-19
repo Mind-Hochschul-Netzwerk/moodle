@@ -50,8 +50,9 @@ $CFG->dboptions = [
     'dbcollation' => 'utf8mb4_unicode_ci',
 ];
 
-// do not redirect backend calls
-if (empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+// do not redirect backend calls from other containers (needed for LTI tools)
+// 10.1.0.0/16 is the traefik subnet
+if (isset($_SERVER['REMOTE_ADDR']) && !str_starts_with($_SERVER['REMOTE_ADDR'], '10.1.')) {
     $CFG->wwwroot = 'https://moodle';
 } else {
     $CFG->wwwroot = getenv('WWW_ROOT');
