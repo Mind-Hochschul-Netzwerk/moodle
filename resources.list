@@ -2,7 +2,7 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable403/moodle-4.3.3.tgz c85ac3dbbedb3b6e4ee46797546e1584a3bfa07f5db20aa84ecae5319a171db2 # Moodle 4.3.3
+https://download.moodle.org/download.php/direct/stable404/moodle-4.4.tgz 216e3b216b5d6e4064f20c3a78441bfc2f7f051c036c9a62ad79dc1860f2dfeb # Moodle 4.4
 
 # Block-Plugins
 # https://moodle.org/plugins/block_sharing_cart/versions
