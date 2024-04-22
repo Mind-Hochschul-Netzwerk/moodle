@@ -1,4 +1,4 @@
-FROM trafex/php-nginx:3.4.0
+FROM trafex/php-nginx:3.5.0
 
 LABEL Maintainer="Henrik Gebauer <code@henrik-gebauer.de>" \
       Description="mind-hochschul-netzwerk.de"
@@ -17,13 +17,13 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 RUN set -ex \
   && apk --no-cache add \
-    php82-ldap \
-    php82-zip \
-    php82-iconv \
-    php82-simplexml \
-    php82-soap \
-    php82-sodium \
-    php82-exif \
+    php83-ldap \
+    php83-zip \
+    php83-iconv \
+    php83-simplexml \
+    php83-soap \
+    php83-sodium \
+    php83-exif \
   && /tmp/build/get-resources.sh \
   && tar --strip-components=1 -C /var/www/html -xzf /tmp/build/moodle-*.tgz moodle \
   && for f in /tmp/build/mod_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/mod -qq; fi; done \
@@ -47,5 +47,5 @@ RUN set -ex \
 USER nobody
 
 COPY server/nginx/ /etc/nginx/
-COPY server/php-custom.ini /etc/php82/conf.d/custom.ini
+COPY server/php-custom.ini /etc/php83/conf.d/custom.ini
 COPY src/config.php /var/www/html/config.php
