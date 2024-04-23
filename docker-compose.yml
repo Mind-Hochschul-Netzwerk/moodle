@@ -1,6 +1,6 @@
 services:
   moodle-database:
-    image: mariadb:10.11
+    image: mariadb:latest
     restart: unless-stopped
     container_name: ${SERVICENAME}-database
     environment:
@@ -16,7 +16,7 @@ services:
       - ${SERVICENAME}
 
   moodle:
-    image: mindhochschulnetzwerk/${SERVICENAME}
+    image: _local/${SERVICENAME}
     restart: unless-stopped
     container_name: ${SERVICENAME}
     environment:
@@ -55,7 +55,7 @@ services:
       - ldap
 
   moodle-adminer:
-    image: adminer
+    image: adminer:latest
     container_name: ${SERVICENAME}-adminer
     labels:
       - traefik.enable=true
