@@ -1,8 +1,8 @@
 services:
-  moodle-database:
-    image: mariadb:latest
+  db:
+    image: mariadb:10.11
     restart: unless-stopped
-    container_name: ${SERVICENAME}-database
+    container_name: ${SERVICENAME}-db
     environment:
       - MYSQL_USER=user
       - MYSQL_PASSWORD
@@ -12,16 +12,14 @@ services:
     volumes:
       - "./docker/sql:/docker-entrypoint-initdb.d:ro"
       - "${VOLUMES_DIR}/mariadb:/var/lib/mysql"
-    networks:
-      - ${SERVICENAME}
 
-  moodle:
-    image: _local/${SERVICENAME}
+  app:
+    image: local/${SERVICENAME}
     restart: unless-stopped
     container_name: ${SERVICENAME}
     environment:
       - WWW_ROOT=https://www.${DOMAINNAME}
-      - DB_HOST=${SERVICENAME}-database
+      - DB_HOST=db
       - DB_USER=user
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_NAME=database
@@ -48,13 +46,13 @@ services:
       - traefik.http.routers.${SERVICENAME}.entrypoints=websecure
       - traefik.http.routers.${SERVICENAME}.rule=Host(`www.${DOMAINNAME}`) || Host(`${SERVICENAME}.${DOMAINNAME}`) || Host(`${DOMAINNAME}`) || Host(`akademie.${DOMAINNAME}`) || Host(`mind-akademie.de`) || Host(`www.mind-akademie.de`)
     depends_on:
-      - ${SERVICENAME}-database
+      - db
     networks:
+      - default
       - traefik
-      - ${SERVICENAME}
       - ldap
 
-  moodle-adminer:
+  adminer:
     image: adminer:latest
     container_name: ${SERVICENAME}-adminer
     labels:
@@ -63,10 +61,10 @@ services:
       - traefik.http.routers.${SERVICENAME}-adminer.entrypoints=websecure
       - traefik.http.routers.${SERVICENAME}-adminer.rule=Host(`${SERVICENAME}-adminer.${DOMAINNAME}`)
     networks:
+      - default
       - traefik
-      - ${SERVICENAME}
     depends_on:
-      - ${SERVICENAME}-database
+      - db
 
 networks:
   traefik:
@@ -75,5 +73,3 @@ networks:
   ldap:
     name: ldap
     external: true
-  moodle:
-    name: ${SERVICENAME}
