@@ -13,6 +13,7 @@ image:
 	docker build --no-cache -t local/$(SERVICENAME):latest .
 
 rebuild:
+	sh ./docker-dependencies.sh
 	@echo "Rebuilding docker image"
 	docker build -t local/$(SERVICENAME):latest .
 	@echo "Restarting service"

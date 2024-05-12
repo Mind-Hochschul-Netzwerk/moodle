@@ -1,18 +1,15 @@
 #!/bin/sh -e
 
+CACHE_DIR=docker/build-cache
 DIR=/tmp/build
-LIST=/tmp/build/resources.list
+LIST=$(dirname $0)/docker-dependencies.list
 
-if [ -d "./assets" ]; then
-    DIR="./assets"
+if [ -d "$CACHE_DIR" ]; then
+    DIR=$CACHE_DIR
 fi
 
 if [ -d "$1" ]; then
     DIR=${1%/}
-fi
-
-if [ -f "./resources.list" ]; then
-    LIST="./resources.list"
 fi
 
 if [ -f "$2" ]; then

@@ -23,12 +23,12 @@ RUN --mount=type=cache,target=/var/cache/apk \
     php83-sodium \
     php83-exif
 
-COPY --chown=nobody assets/ get-resources.sh resources.list /tmp/build/
 COPY --chown=nobody moodle-loop.sh /
+COPY --chown=nobody docker/build-cache docker-dependencies.sh docker-dependencies.list /tmp/build/
 
 RUN <<EOT
   set -ex
-  /tmp/build/get-resources.sh
+  /tmp/build/docker-dependencies.sh
   tar --strip-components=1 -C /var/www/html -xzf /tmp/build/moodle-*.tgz moodle
   for f in /tmp/build/mod_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/mod -qq; fi; done
   for f in /tmp/build/repository_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/html/repository -qq; fi; done
