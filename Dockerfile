@@ -43,6 +43,8 @@ RUN <<EOT
   # use common characters in mail addressess, see https://tracker.moodle.org/browse/MDL-71652
   sed "s#\$subaddress = base64_encode(implode(\$data));#\$subaddress = str_replace('=', '', strtr(base64_encode(implode(\$data)), '+/', '-.'));#" -i /var/www/html/lib/classes/message/inbound/address_manager.php
   sed "s#\$data = base64_decode(\$encodeddata, true);#\$data = base64_decode(strtr(\$encodeddata, '-.', '+/'), true);#" -i /var/www/html/lib/classes/message/inbound/address_manager.php
+  # fix images in front page wiki, see https://tracker.moodle.org/browse/MDL-81879
+  sed "s#require_login#\/\/require_login#" -i /var/www/html/mod/wiki/lib.php
   # set up moodle-loop.sh to run the moodle cron script
   chmod u+x /moodle-loop.sh
   echo -e "[program:moodle-loop]\ncommand=/moodle-loop.sh\nautorestart=true" >> /etc/supervisor/conf.d/supervisord.conf
