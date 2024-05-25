@@ -10,12 +10,12 @@ endif
 
 image:
 	@echo "(Re)building docker image"
-	docker build --no-cache -t local/$(SERVICENAME):latest .
+	docker build --no-cache -t ghcr.io/mind-hochschul-netzwerk/${SERVICENAME}:latest .
 
 rebuild:
 	sh ./docker-dependencies.sh
 	@echo "Rebuilding docker image"
-	docker build -t local/$(SERVICENAME):latest .
+	docker build -t ghcr.io/mind-hochschul-netzwerk/${SERVICENAME}:latest .
 	@echo "Restarting service"
 	docker compose up -d --force-recreate --remove-orphans app
 
