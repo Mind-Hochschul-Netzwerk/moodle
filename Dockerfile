@@ -8,20 +8,24 @@ HEALTHCHECK --interval=10s CMD curl --silent --fail http://127.0.0.1/fpm-ping
 
 USER root
 
+# apply (security) updates
+RUN --mount=type=cache,target=/var/cache/apk set -x \
+  && apk upgrade
+
 # workaround for iconv issue
-RUN --mount=type=cache,target=/var/cache/apk \
-    apk add --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ gnu-libiconv==1.15-r3
+RUN --mount=type=cache,target=/var/cache/apk set -x \
+  && apk add --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ gnu-libiconv==1.15-r3
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
-RUN --mount=type=cache,target=/var/cache/apk \
-  apk add \
-    php83-ldap \
-    php83-zip \
-    php83-iconv \
-    php83-simplexml \
-    php83-soap \
-    php83-sodium \
-    php83-exif
+RUN --mount=type=cache,target=/var/cache/apk set -x \
+  && apk add \
+      php83-ldap \
+      php83-zip \
+      php83-iconv \
+      php83-simplexml \
+      php83-soap \
+      php83-sodium \
+      php83-exif
 
 COPY --chown=nobody moodle-loop.sh /
 COPY --chown=nobody docker/build-cache docker-dependencies.sh docker-dependencies.list /tmp/build/

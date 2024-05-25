@@ -14,7 +14,7 @@ services:
       - "${VOLUMES_DIR}/mariadb:/var/lib/mysql"
 
   app:
-    image: local/${SERVICENAME}
+    image: ghcr.io/mind-hochschul-netzwerk/${SERVICENAME}
     restart: unless-stopped
     container_name: ${SERVICENAME}
     environment:
