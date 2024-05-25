@@ -23,7 +23,7 @@ dev: .env check-traefik
 	@echo "Starting DEV Server"
 	docker compose up -d --force-recreate --remove-orphans
 
-prod: image .env check-traefik
+prod: .env check-traefik
 	@echo "Starting Production Server"
 	docker compose up --pull always -d --force-recreate --remove-orphans app
 
