@@ -2,7 +2,7 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable404/moodle-4.4.1.tgz fa9cc3ad2326f95e291337b5de627f7b285ac5cbe7986fde9e8d1cb024538ac5 # Moodle 4.4.1
+https://download.moodle.org/download.php/direct/stable404/moodle-4.4.2.tgz a90f57fe1c791200e61255608fba1985123875e9620ad34b051d4fbb63db3482 # Moodle 4.4.2
 
 # https://moodle.org/plugins/mod_unilabel/versions
 https://moodle.org/plugins/download.php/32012/mod_unilabel_moodle44_2024050700.zip 86e34238cd311cae24bf3290798769efaec476098acc8bc3dec7faac045b24ad
@@ -13,7 +13,7 @@ https://moodle.org/plugins/download.php/32715/block_sharing_cart_moodle44_202407
 
 # Voraussetzungs-Plugins (Verfügbarkeit von Aktivitäten einschränken)
 # https://moodle.org/plugins/availability_role/versions
-https://moodle.org/plugins/download.php/30343/availability_role_moodle43_2023102000.zip def9d198c7110a9e28f32861ca1968886d9ce3038c67a954fe1d549d50e9a968 # Voraussetzung "Rolle" https://moodle.org/plugins/availability_role
+https://moodle.org/plugins/download.php/32872/availability_role_moodle43_2023102001.zip f1c75fc27b0b16f04005624f993b13bb957a2147f95a3c287adf375b37f91a06 # Voraussetzung "Rolle" https://moodle.org/plugins/availability_role
 
 # Filter-Plugins
 # Filtercodes: https://moodle.org/plugins/filter_filtercodes

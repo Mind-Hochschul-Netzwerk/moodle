@@ -25,7 +25,8 @@ RUN --mount=type=cache,target=/var/cache/apk set -x \
       php83-simplexml \
       php83-soap \
       php83-sodium \
-      php83-exif
+      php83-exif \
+      php83-tidy
 
 COPY --chown=nobody moodle-loop.sh /
 COPY --chown=nobody docker/build-cache docker-dependencies.sh docker-dependencies.list /tmp/build/
