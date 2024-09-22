@@ -46,6 +46,7 @@ services:
       - traefik.docker.network=traefik
       - traefik.http.routers.${SERVICENAME}.entrypoints=websecure
       - traefik.http.routers.${SERVICENAME}.rule=Host(`www.${DOMAINNAME}`) || Host(`${SERVICENAME}.${DOMAINNAME}`) || Host(`${DOMAINNAME}`) || Host(`akademie.${DOMAINNAME}`) || Host(`mind-akademie.de`) || Host(`www.mind-akademie.de`)
+      - traefik.http.routers.${SERVICENAME}.middlewares=secheader@file
     depends_on:
       - db
     networks:
