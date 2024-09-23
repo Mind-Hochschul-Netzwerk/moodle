@@ -43,8 +43,6 @@ services:
       - "./src/akademieprogramm.php:/var/www/html/akademieprogramm.php:ro"
     labels:
       - traefik.enable=true
-      - traefik.docker.network=traefik
-      - traefik.http.routers.${SERVICENAME}.entrypoints=websecure
       - traefik.http.routers.${SERVICENAME}.rule=Host(`www.${DOMAINNAME}`) || Host(`${SERVICENAME}.${DOMAINNAME}`) || Host(`${DOMAINNAME}`) || Host(`akademie.${DOMAINNAME}`) || Host(`mind-akademie.de`) || Host(`www.mind-akademie.de`)
       - traefik.http.routers.${SERVICENAME}.middlewares=secheader@file
     depends_on:
@@ -59,9 +57,6 @@ services:
     container_name: ${SERVICENAME}-adminer
     labels:
       - traefik.enable=true
-      - traefik.docker.network=traefik
-      - traefik.http.routers.${SERVICENAME}-adminer.entrypoints=websecure
-      - traefik.http.routers.${SERVICENAME}-adminer.rule=Host(`${SERVICENAME}-adminer.${DOMAINNAME}`)
     networks:
       - default
       - traefik
