@@ -2,7 +2,7 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable404/moodle-4.4.3.tgz 485cac54118624a405ce6de9576e7ec07685ed1d6daea00e150d412c14c8cd69 # Moodle 4.4.2
+https://download.moodle.org/download.php/direct/stable405/moodle-4.5.tgz 95337bee866e16402a41358f6f1363daee564a4ffe97b405566279d384fafb80 # Moodle 4.4.2
 
 # https://moodle.org/plugins/mod_unilabel/versions
 https://moodle.org/plugins/download.php/32012/mod_unilabel_moodle44_2024050700.zip 86e34238cd311cae24bf3290798769efaec476098acc8bc3dec7faac045b24ad
@@ -11,13 +11,9 @@ https://moodle.org/plugins/download.php/32012/mod_unilabel_moodle44_2024050700.z
 # https://moodle.org/plugins/block_sharing_cart/versions
 https://moodle.org/plugins/download.php/32715/block_sharing_cart_moodle44_2024072900.zip d5a35000845929b69d08f0dc24537a79081266b0be9facfb2a0921f25def3b51
 
-# Voraussetzungs-Plugins (Verfügbarkeit von Aktivitäten einschränken)
-# https://moodle.org/plugins/availability_role/versions
-https://moodle.org/plugins/download.php/32972/availability_role_moodle44_2024060100.zip 89ff63cef64771b4138986497683dc13d391256a3aba82422c8a51cb08cf0d35 # Voraussetzung "Rolle" https://moodle.org/plugins/availability_role
-
 # Filter-Plugins
 # Filtercodes: https://moodle.org/plugins/filter_filtercodes
-https://moodle.org/plugins/download.php/31902/filter_filtercodes_moodle44_2024050100.zip dfc80472836f2e067ce9de5858b26e747924ba540229951d975c308124e65ccd
+https://moodle.org/plugins/download.php/33419/filter_filtercodes_moodle45_2024100701.zip 05e174abf91ffffeafb8552fa1763c2d409335411516ce081473e2454a902d9f
 
 # Sonstiges
 https://github.com/mathjax/MathJax/archive/2.7.7.zip?/mathjax.zip c92a98418986f5523fdb8b38ff6a272614982a19690a4e283d30fc87f15d0b2a # MathJax
