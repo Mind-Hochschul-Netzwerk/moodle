@@ -2,10 +2,10 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable405/moodle-4.5.3.tgz c45a9133f8383823c7ec491f0d4dcb603651493a9b75cea303e9d8b121f62bed # Moodle 4.5.3
+https://download.moodle.org/download.php/direct/stable500/moodle-5.0.tgz f28f6a45174691d2ecd19b073fc1e3bf82c04ca997370058df29f2f9c433d99e # Moodle 5.0
 
 # https://moodle.org/plugins/mod_unilabel/versions
-https://moodle.org/plugins/download.php/35177/mod_unilabel_moodle45_2025020402.zip 680b60eb1c3fbbc1b2917f605c05787400a1fd36ede77c3b1840f4f85eb700dc
+https://moodle.org/plugins/download.php/35630/mod_unilabel_moodle45_2025020403.zip 60ed2fb1807a70b67b2f5c2b6b6ce730ae9df95f3dfb44125a60591a0a2874cb
 
 # Block-Plugins
 # https://moodle.org/plugins/block_sharing_cart/versions
