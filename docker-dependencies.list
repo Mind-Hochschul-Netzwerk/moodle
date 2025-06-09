@@ -2,10 +2,10 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable500/moodle-5.0.tgz f28f6a45174691d2ecd19b073fc1e3bf82c04ca997370058df29f2f9c433d99e # Moodle 5.0
+https://download.moodle.org/download.php/direct/stable500/moodle-5.0.1.tgz 61201432bdef4e0a8e44eef4a6893e948cc0d6c3ccb2d16a71d1d66ccc0d4378
 
 # https://moodle.org/plugins/mod_unilabel/versions
-https://moodle.org/plugins/download.php/35630/mod_unilabel_moodle45_2025020403.zip 60ed2fb1807a70b67b2f5c2b6b6ce730ae9df95f3dfb44125a60591a0a2874cb
+https://moodle.org/plugins/download.php/36324/mod_unilabel_moodle50_2025042201.zip e95d0a48a11a2eff9386f44cc67ae777499ac915905d4d608f4aa381f58b97d5
 
 # Block-Plugins
 # https://moodle.org/plugins/block_sharing_cart/versions
@@ -13,7 +13,7 @@ https://moodle.org/plugins/download.php/32715/block_sharing_cart_moodle44_202407
 
 # Filter-Plugins
 # Filtercodes: https://moodle.org/plugins/filter_filtercodes/versions
-https://moodle.org/plugins/download.php/33419/filter_filtercodes_moodle45_2024100701.zip 05e174abf91ffffeafb8552fa1763c2d409335411516ce081473e2454a902d9f
+https://moodle.org/plugins/download.php/36093/filter_filtercodes_moodle50_2025050500.zip b7024bf4e0951a32b92e89f2a0f6564c1fa487d5168e5f9e069502f55f4ee734
 
 # Sonstiges
 https://github.com/mathjax/MathJax/archive/2.7.7.zip?/mathjax.zip c92a98418986f5523fdb8b38ff6a272614982a19690a4e283d30fc87f15d0b2a # MathJax
