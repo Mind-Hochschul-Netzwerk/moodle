@@ -31,21 +31,11 @@ RUN --mount=type=cache,target=/var/cache/apk set -x \
       php83-tidy
 
 COPY --chown=nobody moodle-loop.sh /
-COPY --chown=nobody docker/build-cache docker-dependencies.sh docker-dependencies.list /tmp/build/
+COPY --chown=nobody docker/build-cache dependencies.* /tmp/build/
 
 RUN <<EOT
   set -ex
-  /tmp/build/docker-dependencies.sh
-  tar --strip-components=1 -C /var/www -xzf /tmp/build/moodle-*.tgz moodle
-  for f in /tmp/build/mod_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/mod -qq; fi; done
-  for f in /tmp/build/repository_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/repository -qq; fi; done
-  for f in /tmp/build/theme_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/theme -qq; fi; done
-  for f in /tmp/build/enrol_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/enrol -qq; fi; done
-  for f in /tmp/build/filter_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/filter -qq; fi; done
-  for f in /tmp/build/local_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/local -qq; fi; done
-  for f in /tmp/build/block_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/blocks -qq; fi; done
-  for f in /tmp/build/availability_*.zip; do if [ -e "$f" ]; then unzip "$f" -d /var/www/public/availability/condition -qq; fi; done
-  unzip /tmp/build/mathjax.zip -d /var/www/public/ -qq && mv /var/www/public/MathJax-* /var/www/public/mathjax
+  php /tmp/build/dependencies.php --install
   rm -rf /tmp/build
   cd /var/www/
   composer install --no-dev --classmap-authoritative

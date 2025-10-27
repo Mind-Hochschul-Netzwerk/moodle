@@ -13,7 +13,7 @@ image:
 	docker build --no-cache -t ghcr.io/mind-hochschul-netzwerk/${SERVICENAME}:latest .
 
 rebuild:
-	sh ./docker-dependencies.sh
+	php ./dependencies.php
 	@echo "Rebuilding docker image"
 	docker build -t ghcr.io/mind-hochschul-netzwerk/${SERVICENAME}:latest .
 	@echo "Restarting service"

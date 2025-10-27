@@ -1,0 +1,30 @@
+{
+    "Moodle 5.1": {
+        "url": "https://download.moodle.org/download.php/direct/stable501/moodle-5.1.tgz",
+        "run": "tar --strip-components=1 -C /var/www -xzf $file moodle",
+        "ref": "https://download.moodle.org/releases/latest/"
+    },
+    "Unilabel": {
+        "url": "https://moodle.org/plugins/download.php/38307/mod_unilabel_moodle51_2025042212.zip",
+        "run": "unzip $file -d /var/www/public/mod -qq",
+        "ref": "https://moodle.org/plugins/mod_unilabel/versions"
+    },
+    "Sharing Cart": {
+        "url": "https://moodle.org/plugins/download.php/37969/block_sharing_cart_moodle50_2025092900.zip",
+        "run": "unzip $file -d /var/www/public/blocks -qq",
+        "ref": "https://moodle.org/plugins/block_sharing_cart/versions"
+    },
+    "Filtercodes": {
+        "url": "https://moodle.org/plugins/download.php/36093/filter_filtercodes_moodle50_2025050500.zip",
+        "run": "unzip $file -d /var/www/public/mod -qq",
+        "ref": "https://moodle.org/plugins/filter_filtercodes/versions"
+    },
+    "MathJax": {
+        "url": "https://github.com/mathjax/MathJax/archive/2.7.7.zip?/mathjax.zip",
+        "run": [
+            "unzip $file -d /var/www/public/ -qq",
+            "mv /var/www/public/MathJax-* /var/www/public/mathjax"
+        ],
+        "ref": "https://github.com/mathjax/MathJax/releases"
+    }
+}
