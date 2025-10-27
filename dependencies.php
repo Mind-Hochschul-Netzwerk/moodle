@@ -57,7 +57,7 @@ foreach ($list as $name => $entry) {
         if (!curl_exec($ch)) {
             error_log("cURL error: " . curl_error($ch));
             error_log("url was: " . $entry['url']);
-            echo "downloaded file starts with: " . substr(file_get_contents($savePath), 300);
+            error_log("downloaded file starts with: " . substr(file_get_contents($savePath), 300));
             unlink($savePath);
             exit(1);
         }
@@ -77,10 +77,9 @@ foreach ($list as $name => $entry) {
         echo "checksum okay\n";
     } else {
         error_log("unexpected checksum!");
-        echo "expected: " . $lock[$filename] . "\n";
-        echo "found: " . $checksum . "\n";
-        echo "downloaded file starts with: " . substr(file_get_contents($savePath), 300);
-        echo "\n";
+        error_log("expected: " . $lock[$filename]);
+        error_log("found: " . $checksum);
+        error_log("downloaded file starts with: " . substr(file_get_contents($savePath), 300));
         exit(1);
     }
 
