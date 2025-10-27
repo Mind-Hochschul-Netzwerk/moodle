@@ -16,7 +16,7 @@
     },
     "Filtercodes": {
         "url": "https://moodle.org/plugins/download.php/36093/filter_filtercodes_moodle50_2025050500.zip",
-        "run": "unzip $file -d /var/www/public/mod -qq",
+        "run": "unzip $file -d /var/www/public/filter -qq",
         "ref": "https://moodle.org/plugins/filter_filtercodes/versions"
     },
     "MathJax": {
