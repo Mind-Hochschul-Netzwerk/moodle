@@ -3,7 +3,7 @@
 $cacheDir = 'docker/build-cache';
 $downloadDir = '/tmp/build';
 $jsonFile = __DIR__ . '/dependencies.json';
-$lockFile = __DIR__ . '/dependencies.lock.json';
+$lockFile = __DIR__ . '/dependencies.lock';
 
 if (is_dir($cacheDir)) {
     $downloadDir = $cacheDir;
@@ -57,6 +57,7 @@ foreach ($list as $name => $entry) {
         if (!curl_exec($ch)) {
             error_log("cURL error: " . curl_error($ch));
             error_log("url was: " . $entry['url']);
+            echo "downloaded file starts with: " . substr(file_get_contents($savePath), 300);
             unlink($savePath);
             exit(1);
         }
