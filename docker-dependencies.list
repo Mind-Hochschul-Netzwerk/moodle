@@ -2,14 +2,14 @@
 # falls die Datei mit dem Namen in ./assets vorhanden ist, wird diese verwendet statt sie herunterzuladen
 
 # Moodle
-https://download.moodle.org/download.php/direct/stable500/moodle-5.0.2.tgz a7d917ad49ec14d1c9de4e44c1260efe25cd94dd406a7386967d534121620942
+https://download.moodle.org/download.php/direct/stable501/moodle-5.1.tgz 7b9807f4300127aaa6c270d785ec5661b6dfe181e505bd28c118180dfd67938a
 
 # https://moodle.org/plugins/mod_unilabel/versions
-https://moodle.org/plugins/download.php/36324/mod_unilabel_moodle50_2025042201.zip e95d0a48a11a2eff9386f44cc67ae777499ac915905d4d608f4aa381f58b97d5
+https://moodle.org/plugins/download.php/38307/mod_unilabel_moodle51_2025042212.zip ed7c21fc925f494c63d8eb9c430bc5ae96dc36fd8636d7afb0c94708b142a460
 
 # Block-Plugins
 # https://moodle.org/plugins/block_sharing_cart/versions
-https://moodle.org/plugins/download.php/37490/block_sharing_cart_moodle50_2025070200.zip 567fcba3cb7ba29eb6a7f2dbeddfe932b2564bc5c965f87f3eaae618302bae40
+https://moodle.org/plugins/download.php/37969/block_sharing_cart_moodle50_2025092900.zip b452a3efd610598471c5cc8099d06ce0b8e4236bc7ed03e3dd009f931d619aa6
 
 # Filter-Plugins
 # Filtercodes: https://moodle.org/plugins/filter_filtercodes/versions
