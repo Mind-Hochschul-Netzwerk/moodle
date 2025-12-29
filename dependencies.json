@@ -1,11 +1,11 @@
 {
-    "Moodle 5.1": {
-        "url": "https://download.moodle.org/download.php/direct/stable501/moodle-5.1.tgz",
+    "Moodle": {
+        "url": "https://download.moodle.org/download.php/direct/stable501/moodle-5.1.1.tgz",
         "run": "tar --strip-components=1 -C /var/www -xzf $file moodle",
         "ref": "https://download.moodle.org/releases/latest/"
     },
     "Unilabel": {
-        "url": "https://moodle.org/plugins/download.php/38307/mod_unilabel_moodle51_2025042212.zip",
+        "url": "https://moodle.org/plugins/download.php/38540/mod_unilabel_moodle51_2025042213.zip",
         "run": "unzip $file -d /var/www/public/mod -qq",
         "ref": "https://moodle.org/plugins/mod_unilabel/versions"
     },
@@ -15,7 +15,7 @@
         "ref": "https://moodle.org/plugins/block_sharing_cart/versions"
     },
     "Filtercodes": {
-        "url": "https://moodle.org/plugins/download.php/36093/filter_filtercodes_moodle50_2025050500.zip",
+        "url": "https://moodle.org/plugins/download.php/38432/filter_filtercodes_moodle51_2025102700.zip",
         "run": "unzip $file -d /var/www/public/filter -qq",
         "ref": "https://moodle.org/plugins/filter_filtercodes/versions"
     },
