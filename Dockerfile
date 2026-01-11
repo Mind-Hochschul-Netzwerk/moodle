@@ -55,4 +55,3 @@ USER nobody
 COPY server/nginx/ /etc/nginx/
 COPY server/php-custom.ini /etc/php83/conf.d/custom.ini
 COPY src/config.php /var/www/config.php
-COPY src/akademieprogramm.php /var/www/public/
