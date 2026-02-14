@@ -1,6 +1,6 @@
 {
     "Moodle": {
-        "url": "https://download.moodle.org/download.php/direct/stable501/moodle-5.1.1.tgz",
+        "url": "https://download.moodle.org/download.php/direct/stable501/moodle-5.1.3.tgz",
         "run": "tar --strip-components=1 -C /var/www -xzf $file moodle",
         "ref": "https://download.moodle.org/releases/latest/"
     },
