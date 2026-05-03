@@ -1,11 +1,11 @@
 {
     "Moodle": {
-        "url": "https://download.moodle.org/download.php/direct/stable501/moodle-5.1.3.tgz",
+        "url": "https://download.moodle.org/download.php/direct/stable502/moodle-5.2.tgz",
         "run": "tar --strip-components=1 -C /var/www -xzf $file moodle",
         "ref": "https://download.moodle.org/releases/latest/"
     },
     "Unilabel": {
-        "url": "https://moodle.org/plugins/download.php/38540/mod_unilabel_moodle51_2025042213.zip",
+        "url": "https://moodle.org/plugins/download.php/40177/mod_unilabel_moodle51_2025042214.zip",
         "run": "unzip $file -d /var/www/public/mod -qq",
         "ref": "https://moodle.org/plugins/mod_unilabel/versions"
     },

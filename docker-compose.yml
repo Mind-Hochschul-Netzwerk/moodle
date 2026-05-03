@@ -16,6 +16,8 @@ services:
 
   app:
     image: ghcr.io/mind-hochschul-netzwerk/${SERVICENAME}
+    build:
+      context: .
     restart: unless-stopped
     container_name: ${SERVICENAME}
     environment:
@@ -39,8 +41,7 @@ services:
     volumes:
       #- "./docker/moodledata-init.tar.bz2:/moodledata-init.tar.bz2:ro"
       - "${VOLUMES_DIR}/moodledata:/moodledata"
-      - "./src/config.php:/var/www/html/config.php:ro"
-      - "./src/akademieprogramm.php:/var/www/html/akademieprogramm.php:ro"
+      - "./src/config.php:/var/www/config.php:ro"
     labels:
       - traefik.enable=true
       - traefik.http.routers.${SERVICENAME}.rule=Host(`www.${DOMAINNAME}`) || Host(`${SERVICENAME}.${DOMAINNAME}`) || Host(`${DOMAINNAME}`) || Host(`akademie.${DOMAINNAME}`) || Host(`mind-akademie.de`) || Host(`www.mind-akademie.de`)
