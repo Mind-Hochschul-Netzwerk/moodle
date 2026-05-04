@@ -59,6 +59,7 @@ if (isset($_SERVER['REMOTE_ADDR']) && !str_starts_with($_SERVER['REMOTE_ADDR'], 
 }
 
 $CFG->dataroot  = '/moodledata';
+$CFG->routerconfigured = true;
 $CFG->directorypermissions = 02777;
 $CFG->admin = 'admin';
 
