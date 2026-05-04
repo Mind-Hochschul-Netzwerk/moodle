@@ -22,6 +22,8 @@ services:
     container_name: ${SERVICENAME}
     logging:
       driver: journald
+      options:
+        tag: ${SERVICENAME}
     environment:
       - WWW_ROOT=https://www.${DOMAINNAME}
       - DB_HOST=db
