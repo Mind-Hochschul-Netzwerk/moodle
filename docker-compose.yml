@@ -20,6 +20,8 @@ services:
       context: .
     restart: unless-stopped
     container_name: ${SERVICENAME}
+    logging:
+      driver: journald
     environment:
       - WWW_ROOT=https://www.${DOMAINNAME}
       - DB_HOST=db
