@@ -46,6 +46,7 @@ services:
       #- "./docker/moodledata-init.tar.bz2:/moodledata-init.tar.bz2:ro"
       - "${VOLUMES_DIR}/moodledata:/moodledata"
       - "./src/config.php:/var/www/config.php:ro"
+      - "./server/nginx/conf.d:/etc/nginx/conf.d:ro"
     labels:
       - traefik.enable=true
       - traefik.http.routers.${SERVICENAME}.rule=Host(`www.${DOMAINNAME}`) || Host(`${SERVICENAME}.${DOMAINNAME}`) || Host(`${DOMAINNAME}`) || Host(`akademie.${DOMAINNAME}`) || Host(`mind-akademie.de`) || Host(`www.mind-akademie.de`)

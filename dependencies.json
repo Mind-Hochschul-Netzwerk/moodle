@@ -5,7 +5,7 @@
         "ref": "https://download.moodle.org/releases/latest/"
     },
     "Unilabel": {
-        "url": "https://moodle.org/plugins/download.php/40177/mod_unilabel_moodle51_2025042214.zip",
+        "url": "https://moodle.org/plugins/download.php/41820/mod_unilabel_moodle52_2025042300.zip",
         "run": "unzip $file -d /var/www/public/mod -qq",
         "ref": "https://moodle.org/plugins/mod_unilabel/versions"
     },
@@ -15,7 +15,7 @@
         "ref": "https://moodle.org/plugins/block_sharing_cart/versions"
     },
     "Filtercodes": {
-        "url": "https://moodle.org/plugins/download.php/38432/filter_filtercodes_moodle51_2025102700.zip",
+        "url": "https://moodle.org/plugins/download.php/41771/filter_filtercodes_moodle52_2026051100.zip",
         "run": "unzip $file -d /var/www/public/filter -qq",
         "ref": "https://moodle.org/plugins/filter_filtercodes/versions"
     },
